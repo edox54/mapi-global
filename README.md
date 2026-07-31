@@ -43,6 +43,21 @@ File Manager o FTP. Incluye `.htaccess` con la página 404 y cabeceras de caché
 
 No requiere "Setup Node.js App": el sitio es HTML estático.
 
+## Movimiento
+
+- `motion` (framer-motion v12) para reveals al hacer scroll, contadores, transición de página
+  (`app/template.js`) y zoom lento en imágenes de fondo.
+- `components/anim.js` — `Reveal`, `PalabrasEntrada`, `Contador`, `FondoZoom`.
+- `components/Particulas.js` — canvas de partículas del hero.
+- Todo respeta `prefers-reduced-motion`.
+
+## Imágenes
+
+- `public/img/*.jpg` son piezas blueprint generadas con `scripts/generar-imagenes.py`.
+  Para usar fotos reales: sobrescribir el archivo con el mismo nombre. El duotono navy se aplica
+  por CSS (`grayscale` + `mix-blend-mode: color`), así que la foto entra a la paleta sin retoque.
+- Formatos recomendados: hero 2000x1250, tarjetas 1400x1000.
+
 ## Marca
 
 - Azul Marino Institucional `#0F2040` (Pantone 289C) y blanco puro. Gris grafito solo para texto

@@ -1,6 +1,7 @@
 import { Cabecera, Eyebrow } from '../../components/Bloques';
 import { GraficoMapa } from '../../components/Graficos';
 import Formulario from '../../components/Formulario';
+import { Reveal, FondoZoom } from '../../components/anim';
 import { site } from '../../lib/site';
 
 export const metadata = {
@@ -14,24 +15,30 @@ export default function Contacto() {
   return (
     <>
       <section className="pagina-header">
+        <div className="pagina-header__fondo" aria-hidden="true">
+          <FondoZoom src="/img/contacto.jpg" duracion={26} />
+          <span />
+        </div>
         <div className="contenedor">
-          <Cabecera
-            eyebrow="Canal corporativo"
-            titulo="Contacto"
-            texto="Las consultas institucionales, operativas y de alianzas se reciben por este canal."
-          />
+          <Reveal y={14}>
+            <Cabecera
+              eyebrow="Canal corporativo"
+              titulo="Contacto"
+              texto="Las consultas institucionales, operativas y de alianzas se reciben por este canal."
+            />
+          </Reveal>
         </div>
       </section>
 
       <section className="seccion">
         <div className="contenedor contacto">
-          <div>
+          <Reveal>
             <Eyebrow>Formulario</Eyebrow>
             <h2 className="subtitulo" style={{ marginBottom: 32 }}>Solicitud de información</h2>
             <Formulario />
-          </div>
+          </Reveal>
 
-          <div>
+          <Reveal delay={0.15}>
             <Eyebrow>Datos institucionales</Eyebrow>
             <div className="datos">
               <div className="dato">
@@ -55,7 +62,7 @@ export default function Contacto() {
             <div className="mapa">
               <GraficoMapa />
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
     </>

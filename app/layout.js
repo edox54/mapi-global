@@ -1,7 +1,6 @@
 import { Archivo } from 'next/font/google';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import Fade from '../components/Fade';
 import { site } from '../lib/site';
 import './globals.css';
 
@@ -34,9 +33,7 @@ export default function RootLayout({ children }) {
       <body>
         <a href="#contenido" className="saltar">Saltar al contenido</a>
         <Navbar />
-        <Fade>
-          <div id="contenido">{children}</div>
-        </Fade>
+        {children}
         <Footer />
       </body>
     </html>

@@ -1,19 +1,31 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import { motion, useScroll, useSpring } from 'motion/react';
 import { servicios } from '../lib/servicios';
 
 export default function Navbar() {
   const [abierto, setAbierto] = useState(false);
+  const [compacta, setCompacta] = useState(false);
   const path = usePathname();
+  const { scrollYProgress } = useScroll();
+  const progreso = useSpring(scrollYProgress, { stiffness: 140, damping: 30, restDelta: 0.001 });
+
+  useEffect(() => {
+    const alScroll = () => setCompacta(window.scrollY > 40);
+    alScroll();
+    window.addEventListener('scroll', alScroll, { passive: true });
+    return () => window.removeEventListener('scroll', alScroll);
+  }, []);
+
   const activo = (href) => (href === '/' ? path === '/' : path.startsWith(href));
   const cerrar = () => setAbierto(false);
 
   return (
-    <header className="nav">
+    <header className={`nav ${compacta ? 'is-compacta' : ''}`}>
       <div className="nav__inner">
         <Link href="/" className="nav__marca" onClick={cerrar} aria-label="MAPI GLOBAL — Inicio">
           <Image src="/isotipo.png" alt="" width={640} height={639} priority />
@@ -47,9 +59,10 @@ export default function Navbar() {
             </div>
           </div>
 
-          <Link href="/contacto" onClick={cerrar} className={activo('/contacto') ? 'is-activo' : ''}>Contacto</Link>
+          <Link href="/contacto" onClick={cerrar} className={`nav__cta ${activo('/contacto') ? 'is-activo' : ''}`}>Contacto</Link>
         </nav>
       </div>
+      <motion.div className="nav__progreso" style={{ scaleX: progreso }} aria-hidden="true" />
     </header>
   );
 }
