@@ -42,6 +42,7 @@ export function GraficoNodos() {
   }));
 
   return (
+    <div className="nodos-wrap">
     <svg viewBox="0 0 640 320" className="nodos" role="img" aria-label="MAPI GLOBAL como marca institucional sobre cinco industrias">
       <g stroke="#0f2040" strokeWidth="1.5" fill="none">
         {nodos.map((n) => (
@@ -62,6 +63,7 @@ export function GraficoNodos() {
         MAPI GLOBAL
       </text>
     </svg>
+    </div>
   );
 }
 
