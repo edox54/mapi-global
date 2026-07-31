@@ -2,17 +2,26 @@
 
 import { motion } from 'motion/react';
 
-// Transición de página: fade sutil en cada cambio de ruta (template remonta por ruta).
+// Transición de página: cortina navy con filo dorado + entrada del contenido.
 export default function Template({ children }) {
   return (
-    <motion.main
-      id="contenido"
-      className="pagina"
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-    >
-      {children}
-    </motion.main>
+    <>
+      <motion.div
+        className="cortina"
+        initial={{ scaleY: 1 }}
+        animate={{ scaleY: 0 }}
+        transition={{ duration: 0.85, ease: [0.76, 0, 0.24, 1] }}
+        aria-hidden="true"
+      />
+      <motion.main
+        id="contenido"
+        className="pagina"
+        initial={{ opacity: 0, y: 26, filter: 'blur(10px)' }}
+        animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+        transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+      >
+        {children}
+      </motion.main>
+    </>
   );
 }

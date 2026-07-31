@@ -2,8 +2,9 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { servicios, getServicio } from '../../../lib/servicios';
 import { iconos } from '../../../components/Icons';
-import { Eyebrow, Triada, CTA, Divisiones, Medio } from '../../../components/Bloques';
-import { Reveal, FondoZoom } from '../../../components/anim';
+import { Eyebrow, Triada, CTA, Divisiones, Medio, Proceso, TituloSeccion, Cinta } from '../../../components/Bloques';
+import { Reveal, FondoZoom, LineaEntrada, Parallax } from '../../../components/anim';
+import Faq from '../../../components/Faq';
 
 export function generateStaticParams() {
   return servicios.map((s) => ({ slug: s.slug }));
@@ -35,14 +36,17 @@ export default async function Servicio({ params }) {
             <p className="migas">
               <Link href="/servicios">Servicios</Link> — {servicio.titulo}
             </p>
-            <Icono className="pagina-header__icono" width={40} height={40} />
-            <h1 className="display" style={{ fontSize: 'clamp(32px, 5.4vw, 62px)' }}>{servicio.titulo}</h1>
+            <Icono className="pagina-header__icono" width={44} height={44} />
+          </Reveal>
+          <LineaEntrada className="display display--interior" delay={0.1}>{servicio.titulo}</LineaEntrada>
+          <Reveal delay={0.3}>
             <p className="cabecera__texto" style={{ maxWidth: 640 }}>{servicio.resumen}</p>
           </Reveal>
         </div>
       </section>
 
       <section className="seccion">
+        <span className="halo halo--oro" style={{ width: 400, height: 400, left: '-14%', top: '10%' }} aria-hidden="true" />
         <div className="contenedor dos-columnas">
           <Reveal>
             <Eyebrow>Alcance</Eyebrow>
@@ -50,7 +54,7 @@ export default async function Servicio({ params }) {
           </Reveal>
           <div className="prosa">
             {servicio.descripcion.map((p, i) => (
-              <Reveal key={i} delay={i * 0.08} y={18}>
+              <Reveal key={i} delay={i * 0.1} y={26}>
                 <p>{p}</p>
               </Reveal>
             ))}
@@ -58,16 +62,13 @@ export default async function Servicio({ params }) {
         </div>
       </section>
 
-      <section className="seccion seccion--gris seccion--linea">
+      <section className="seccion seccion--clara seccion--linea">
         <div className="contenedor capacidades-bloque">
           <div>
-            <Reveal>
-              <Eyebrow>Alcance operativo</Eyebrow>
-              <h2 className="titulo" style={{ marginBottom: 40 }}>Capacidades</h2>
-            </Reveal>
-            <div className="capacidades">
+            <TituloSeccion eyebrow="Alcance operativo" titulo="Capacidades" />
+            <div className="capacidades" style={{ marginTop: 42 }}>
               {servicio.capacidades.map((c, i) => (
-                <Reveal key={c.titulo} delay={i * 0.08} className="capacidad">
+                <Reveal key={c.titulo} delay={i * 0.1} y={44} className="capacidad">
                   <span>0{i + 1}</span>
                   <h3>{c.titulo}</h3>
                   <p>{c.texto}</p>
@@ -75,34 +76,73 @@ export default async function Servicio({ params }) {
               ))}
             </div>
           </div>
-          <Reveal delay={0.15} y={30}>
+          <Reveal delay={0.2} y={50} escala={0.92}>
             <Medio src={servicio.imagen} proporcion="3 / 4" className="capacidades-bloque__medio" />
           </Reveal>
         </div>
       </section>
 
+      <section className="seccion">
+        <div className="contenedor">
+          <TituloSeccion
+            eyebrow="Metodología"
+            titulo="Secuencia operativa"
+            texto="Cada operación de la división recorre las mismas cuatro etapas, con documentación y control en cada una."
+          />
+          <div style={{ marginTop: 52 }}>
+            <Proceso pasos={servicio.proceso} />
+          </div>
+        </div>
+      </section>
+
       {servicio.triada && (
-        <section className="seccion seccion--navy">
-          <div className="contenedor">
-            <Reveal>
-              <Eyebrow>Tríada logística global</Eyebrow>
-              <h2 className="titulo" style={{ marginBottom: 22 }}>Las tres rutas</h2>
-              <p className="plomo" style={{ maxWidth: 660, marginBottom: 44 }}>
-                Las tres líneas del isotipo corresponden a las tres vías sobre las que se sostiene la
-                operación de transporte del holding.
-              </p>
-            </Reveal>
-            <Triada detallado />
+        <section className="seccion seccion--navy triada-seccion">
+          <div className="triada-seccion__fondo" aria-hidden="true">
+            <Parallax distancia={60}>
+              <FondoZoom src="/img/aeronaves.jpg" className="triada-seccion__img" duracion={26} />
+            </Parallax>
+            <span />
+          </div>
+          <div className="contenedor" style={{ position: 'relative', zIndex: 2 }}>
+            <TituloSeccion
+              eyebrow="Tríada logística global"
+              titulo="Las tres rutas"
+              texto="Las tres líneas del isotipo corresponden a las tres vías sobre las que se sostiene la operación de transporte del holding."
+            />
+            <div style={{ marginTop: 48 }}>
+              <Triada detallado />
+            </div>
           </div>
         </section>
       )}
 
-      <section className="seccion seccion--linea">
-        <div className="contenedor">
-          <Reveal>
-            <Eyebrow>Otras divisiones</Eyebrow>
+      <section className="seccion seccion--clara seccion--linea">
+        <span className="halo halo--oro" style={{ width: 420, height: 420, right: '-12%', bottom: '0%' }} aria-hidden="true" />
+        <div className="contenedor faq-bloque">
+          <div>
+            <TituloSeccion
+              eyebrow="Preguntas frecuentes"
+              titulo={`Sobre ${servicio.titulo.toLowerCase()}`}
+              texto="Respuestas a las consultas recurrentes sobre el alcance y la operación de esta división."
+            />
+            <Reveal delay={0.25}>
+              <div style={{ marginTop: 34 }}>
+                <Link href="/contacto" className="btn btn--linea">Hacer otra consulta</Link>
+              </div>
+            </Reveal>
+          </div>
+          <Reveal delay={0.15} y={50}>
+            <Faq items={servicio.faqs} />
           </Reveal>
-          <div style={{ marginTop: 32 }}>
+        </div>
+      </section>
+
+      <Cinta palabras={['Bienes Raíces', 'Refinación', 'Logística', 'Aeronaves', 'Construcción', 'Comercio Exterior']} />
+
+      <section className="seccion">
+        <div className="contenedor">
+          <TituloSeccion eyebrow="Otras divisiones" titulo="Continuar explorando" />
+          <div style={{ marginTop: 42 }}>
             <Divisiones items={otras} columnas={4} />
           </div>
         </div>

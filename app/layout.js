@@ -31,6 +31,27 @@ export default function RootLayout({ children }) {
   return (
     <html lang="es" className={archivo.className}>
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            name: site.nombre,
+            url: site.url,
+            logo: `${site.url}/isotipo.png`,
+            description: site.tagline,
+            email: site.contacto.correo,
+            telephone: site.contacto.telefono,
+            address: {
+              '@type': 'PostalAddress',
+              streetAddress: '8180 NW 36 St, Suite 406',
+              addressLocality: 'Doral',
+              addressRegion: 'FL',
+              postalCode: '33166',
+              addressCountry: 'US',
+            },
+          }) }}
+        />
         <a href="#contenido" className="saltar">Saltar al contenido</a>
         <Navbar />
         {children}

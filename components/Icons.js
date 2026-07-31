@@ -88,3 +88,28 @@ export const iconos = {
   aeronaves: IconAeronaves,
   construccion: IconConstruccion,
 };
+
+export function IconCorreo(p) {
+  return (
+    <svg {...base} width="16" height="16" viewBox="0 0 24 24" strokeWidth={1.6} {...p}>
+      <path d="M2 5h20v14H2zM2 6l10 7 10-7" />
+    </svg>
+  );
+}
+
+export function IconTelefono(p) {
+  return (
+    <svg {...base} width="16" height="16" viewBox="0 0 24 24" strokeWidth={1.6} strokeLinejoin="round" {...p}>
+      <path d="M7 2H3v4c0 8.8 7.2 16 16 16h2v-4l-5-2-2 3a17 17 0 0 1-7-7l3-2-2-5z" />
+    </svg>
+  );
+}
+
+export function IconPin(p) {
+  return (
+    <svg {...base} width="16" height="16" viewBox="0 0 24 24" strokeWidth={1.6} strokeLinejoin="round" {...p}>
+      <path d="M12 22s7-7.2 7-12a7 7 0 1 0-14 0c0 4.8 7 12 7 12z" />
+      <circle cx="12" cy="10" r="2.5" />
+    </svg>
+  );
+}

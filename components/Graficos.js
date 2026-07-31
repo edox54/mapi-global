@@ -6,12 +6,12 @@ export function GraficoADN() {
     <svg className="adn__grafico" viewBox="0 0 420 360" role="img" aria-label="Diagrama: base sólida y líneas ascendentes a 45 grados">
       <defs>
         <pattern id="rejilla" width="20" height="20" patternUnits="userSpaceOnUse">
-          <path d="M20 0H0v20" fill="none" stroke="#dfe3ea" strokeWidth="1" />
+          <path d="M20 0H0v20" fill="none" stroke="#e0dad0" strokeWidth="1" />
         </pattern>
       </defs>
       <rect width="420" height="316" fill="url(#rejilla)" />
 
-      <g stroke="#8b93a1" strokeWidth="1" strokeDasharray="4 4" fill="none">
+      <g stroke="#c6a15b" strokeWidth="1.2" strokeDasharray="4 4" fill="none">
         <path d="M236 302h118" />
         <path d="M296 302A60 60 0 0 0 278.4 259.6" />
       </g>
@@ -24,7 +24,7 @@ export function GraficoADN() {
         <path d="M236 302L346 192" />
       </g>
 
-      <g fill="#58616f" fontSize="11" fontFamily="inherit" letterSpacing="1.5">
+      <g fill="#9c7b39" fontSize="11" fontFamily="inherit" letterSpacing="1.5" fontWeight="700">
         <text x="36" y="344">CAPA 01 — ESTABILIDAD</text>
         <text x="384" y="344" textAnchor="end">CAPA 02 — CRECIMIENTO</text>
         <text x="300" y="288">45°</text>
@@ -44,15 +44,15 @@ export function GraficoNodos() {
   return (
     <div className="nodos-wrap">
     <svg viewBox="0 0 640 320" className="nodos" role="img" aria-label="MAPI GLOBAL como marca institucional sobre cinco industrias">
-      <g stroke="#0f2040" strokeWidth="1.5" fill="none">
+      <g stroke="#c6a15b" strokeWidth="1.5" fill="none">
         {nodos.map((n) => (
           <path key={n.titulo} d={`M320 214L${n.x} ${n.y + 15}`} />
         ))}
       </g>
       {nodos.map((n) => (
         <g key={n.titulo}>
-          <circle cx={n.x} cy={n.y} r="15" fill="#ffffff" stroke="#0f2040" strokeWidth="1.5" />
-          <circle cx={n.x} cy={n.y} r="5" fill="#0f2040" />
+          <circle cx={n.x} cy={n.y} r="15" fill="#faf8f3" stroke="#0f2040" strokeWidth="1.5" />
+          <circle cx={n.x} cy={n.y} r="5" fill="#c6a15b" />
           <text x={n.x} y={n.y - 26} textAnchor="middle" fontSize="11" fill="#0f2040" letterSpacing="1.3">
             {n.titulo.toUpperCase()}
           </text>
@@ -80,9 +80,9 @@ export function GraficoMapa() {
         <path d="M0 220L120 100M60 300L220 140M200 300L360 140" />
       </g>
       <circle cx="240" cy="150" r="46" fill="none" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
-      <circle cx="240" cy="150" r="26" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="1" />
-      <rect x="230" y="140" width="20" height="20" rx="5" fill="#ffffff" />
-      <text x="240" y="216" textAnchor="middle" fontSize="11" fill="rgba(255,255,255,0.74)" letterSpacing="2">
+      <circle cx="240" cy="150" r="26" fill="none" stroke="rgba(198,161,91,0.75)" strokeWidth="1" />
+      <rect x="230" y="140" width="20" height="20" rx="6" fill="#c6a15b" />
+      <text x="240" y="216" textAnchor="middle" fontSize="11" fill="rgba(227,200,140,0.9)" letterSpacing="2">
         SEDE CORPORATIVA
       </text>
     </svg>
