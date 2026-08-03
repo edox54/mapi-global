@@ -2,7 +2,7 @@ import { Eyebrow, TituloSeccion } from '../../components/Bloques';
 import { GraficoMapa } from '../../components/Graficos';
 import Formulario from '../../components/Formulario';
 import Faq from '../../components/Faq';
-import { Reveal, FondoZoom, LineaEntrada } from '../../components/anim';
+import { Reveal, LineaEntrada } from '../../components/anim';
 import { IconCorreo, IconTelefono, IconPin } from '../../components/Icons';
 import { site } from '../../lib/site';
 
@@ -38,7 +38,6 @@ export default function Contacto() {
     <>
       <section className="pagina-header">
         <div className="pagina-header__fondo" aria-hidden="true">
-          <FondoZoom src="/img/contacto.jpg" duracion={26} />
           <span />
         </div>
         <div className="contenedor">
@@ -55,7 +54,7 @@ export default function Contacto() {
       </section>
 
       <section className="seccion">
-        <span className="halo halo--oro" style={{ width: 440, height: 440, right: '-12%', top: '18%' }} aria-hidden="true" />
+        <span className="halo halo--acento" style={{ width: 440, height: 440, right: '-12%', top: '18%' }} aria-hidden="true" />
         <div className="contenedor">
           <div className="tarjetas-contacto">
             {[

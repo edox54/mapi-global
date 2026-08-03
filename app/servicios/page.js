@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { servicios } from '../../lib/servicios';
 import { faqsServicios } from '../../lib/faqs';
 import { Eyebrow, CTA, Divisiones, Proceso, TituloSeccion, Cinta } from '../../components/Bloques';
-import { Reveal, FondoZoom, LineaEntrada } from '../../components/anim';
+import { Reveal, LineaEntrada } from '../../components/anim';
 import Faq from '../../components/Faq';
 
 export const metadata = {
@@ -16,7 +16,6 @@ export default function Servicios() {
     <>
       <section className="pagina-header">
         <div className="pagina-header__fondo" aria-hidden="true">
-          <FondoZoom src="/img/hero.jpg" duracion={26} />
           <span />
         </div>
         <div className="contenedor">
@@ -33,7 +32,7 @@ export default function Servicios() {
       </section>
 
       <section className="seccion">
-        <span className="halo halo--oro" style={{ width: 440, height: 440, left: '-12%', top: '14%' }} aria-hidden="true" />
+        <span className="halo halo--acento" style={{ width: 440, height: 440, left: '-12%', top: '14%' }} aria-hidden="true" />
         <div className="contenedor">
           <TituloSeccion
             eyebrow="Índice de divisiones"
@@ -62,7 +61,7 @@ export default function Servicios() {
       </section>
 
       <section className="seccion seccion--linea">
-        <span className="halo halo--oro" style={{ width: 420, height: 420, right: '-12%', bottom: '4%' }} aria-hidden="true" />
+        <span className="halo halo--acento" style={{ width: 420, height: 420, right: '-12%', bottom: '4%' }} aria-hidden="true" />
         <div className="contenedor faq-bloque">
           <div>
             <TituloSeccion

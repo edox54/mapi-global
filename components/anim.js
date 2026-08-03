@@ -163,10 +163,10 @@ export function Parallax({ children, distancia = 90, className }) {
 }
 
 // Línea que se dibuja al entrar en pantalla.
-export function LineaOro({ className = '' }) {
+export function LineaAcento({ className = '' }) {
   return (
     <motion.span
-      className={`linea-oro ${className}`}
+      className={`linea-acento ${className}`}
       initial={{ scaleX: 0 }}
       whileInView={{ scaleX: 1 }}
       viewport={{ once: true }}

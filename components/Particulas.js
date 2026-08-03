@@ -3,8 +3,22 @@
 import { useEffect, useRef } from 'react';
 
 // ponytail: canvas mínimo — puntos a la deriva que se apartan del cursor.
-export default function Particulas({ cantidad = 70, color = '255,255,255', className = '' }) {
+// Sin `color` explícito, lee el acento activo (--acento-rgb) para seguir el
+// selector de paleta; se refresca solo al cambiar de tema, no en cada frame.
+export default function Particulas({ cantidad = 70, color, className = '' }) {
   const ref = useRef(null);
+  const colorRef = useRef(color || '255,255,255');
+
+  useEffect(() => {
+    if (color) return;
+    const leer = () => {
+      const rgb = getComputedStyle(document.documentElement).getPropertyValue('--acento-rgb').trim();
+      if (rgb) colorRef.current = rgb;
+    };
+    leer();
+    window.addEventListener('temacambio', leer);
+    return () => window.removeEventListener('temacambio', leer);
+  }, [color]);
 
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -66,7 +80,7 @@ export default function Particulas({ cantidad = 70, color = '255,255,255', class
         p.a += (p.meta - p.a) * 0.02;
         ctx.beginPath();
         ctx.arc(p.x + p.tx, p.y + p.ty, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${color},${p.a})`;
+        ctx.fillStyle = `rgba(${colorRef.current},${p.a})`;
         ctx.fill();
       }
       raf = requestAnimationFrame(pintar);
@@ -81,7 +95,7 @@ export default function Particulas({ cantidad = 70, color = '255,255,255', class
       window.removeEventListener('resize', medir);
       window.removeEventListener('mousemove', mover);
     };
-  }, [cantidad, color]);
+  }, [cantidad]);
 
   return <canvas ref={ref} className={className} aria-hidden="true" />;
 }

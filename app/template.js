@@ -2,7 +2,7 @@
 
 import { motion } from 'motion/react';
 
-// Transición de página: cortina navy con filo dorado + entrada del contenido.
+// Transición de página: cortina navy con filo de acento + entrada del contenido.
 export default function Template({ children }) {
   return (
     <>

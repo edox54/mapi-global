@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { servicios } from '../lib/servicios';
 import { Eyebrow, Triada, CTA, Divisiones, Cinta, Medio } from '../components/Bloques';
 import { GraficoADN } from '../components/Graficos';
-import { Reveal, PalabrasEntrada, LineaEntrada, Contador, FondoZoom, Parallax, LineaOro } from '../components/anim';
+import { Reveal, PalabrasEntrada, LineaEntrada, Contador, FondoZoom, LineaAcento } from '../components/anim';
 import Particulas from '../components/Particulas';
 
 const cifras = [
@@ -21,8 +21,8 @@ export default function Inicio() {
         </div>
         <span className="hero__velo" aria-hidden="true" />
         <span className="hero__patron" aria-hidden="true" />
-        <Particulas className="hero__particulas" cantidad={90} color="198,161,91" />
-        <span className="halo halo--oro" style={{ width: 460, height: 460, right: '-6%', top: '8%' }} aria-hidden="true" />
+        <Particulas className="hero__particulas" cantidad={90} />
+        <span className="halo halo--acento" style={{ width: 460, height: 460, right: '-6%', top: '8%' }} aria-hidden="true" />
 
         <div className="contenedor">
           <div className="hero__inner">
@@ -37,7 +37,7 @@ export default function Inicio() {
                   aeronaves y construcción. Una sola estructura de gobierno sobre múltiples industrias.
                 </p>
                 <div className="hero__acciones">
-                  <Link href="/servicios" className="btn btn--oro">Divisiones</Link>
+                  <Link href="/servicios" className="btn btn--acento">Divisiones</Link>
                   <Link href="/nosotros" className="btn btn--fantasma">El holding</Link>
                 </div>
               </Reveal>
@@ -63,7 +63,7 @@ export default function Inicio() {
       <Cinta palabras={['Bienes Raíces', 'Refinación', 'Logística', 'Aeronaves', 'Construcción', 'Comercio Exterior']} />
 
       <section className="seccion">
-        <span className="halo halo--oro" style={{ width: 420, height: 420, left: '-12%', top: '18%' }} aria-hidden="true" />
+        <span className="halo halo--acento" style={{ width: 420, height: 420, left: '-12%', top: '18%' }} aria-hidden="true" />
         <div className="contenedor">
           <div className="adn">
             <div>
@@ -111,13 +111,13 @@ export default function Inicio() {
             <Eyebrow>Divisiones</Eyebrow>
           </Reveal>
           <LineaEntrada className="titulo">Cinco frentes, una estructura</LineaEntrada>
-          <div style={{ margin: '26px 0 46px', maxWidth: 220 }}><LineaOro /></div>
+          <div style={{ margin: '26px 0 46px', maxWidth: 220 }}><LineaAcento /></div>
           <Divisiones items={servicios} cta />
         </div>
       </section>
 
       <section className="mosaico-seccion">
-        <span className="halo halo--oro" style={{ width: 500, height: 500, right: '-10%', bottom: '-8%' }} aria-hidden="true" />
+        <span className="halo halo--acento" style={{ width: 500, height: 500, right: '-10%', bottom: '-8%' }} aria-hidden="true" />
         <div className="contenedor">
           <Reveal>
             <Eyebrow>Operación</Eyebrow>
@@ -164,14 +164,9 @@ export default function Inicio() {
         </div>
       </section>
 
-      <section className="seccion seccion--navy triada-seccion">
-        <div className="triada-seccion__fondo" aria-hidden="true">
-          <Parallax distancia={70}>
-            <FondoZoom src="/img/aeronaves.jpg" className="triada-seccion__img" duracion={26} />
-          </Parallax>
-          <span />
-        </div>
-        <div className="contenedor" style={{ position: 'relative', zIndex: 2 }}>
+      <section className="seccion seccion--clara triada-seccion">
+        <span className="triada-seccion__patron" aria-hidden="true" />
+        <div className="contenedor" style={{ position: 'relative', zIndex: 1 }}>
           <Reveal>
             <Eyebrow>Tríada logística global</Eyebrow>
           </Reveal>
@@ -185,7 +180,7 @@ export default function Inicio() {
           <Triada />
           <Reveal delay={0.35}>
             <div style={{ marginTop: 46 }}>
-              <Link href="/servicios/logistica" className="btn btn--oro">Ver división de logística</Link>
+              <Link href="/servicios/logistica" className="btn btn--acento">Ver división de logística</Link>
             </div>
           </Reveal>
         </div>

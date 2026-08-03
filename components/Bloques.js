@@ -74,7 +74,7 @@ export function CTA({ titulo = 'Solicitar información', texto, boton = 'Contact
           {texto && <p>{texto}</p>}
         </Reveal>
         <Reveal delay={0.15}>
-          <Link href="/contacto" className="btn btn--oro">{boton}</Link>
+          <Link href="/contacto" className="btn btn--acento">{boton}</Link>
         </Reveal>
       </div>
     </section>

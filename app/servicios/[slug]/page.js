@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { servicios, getServicio } from '../../../lib/servicios';
 import { iconos } from '../../../components/Icons';
 import { Eyebrow, Triada, CTA, Divisiones, Medio, Proceso, TituloSeccion, Cinta } from '../../../components/Bloques';
-import { Reveal, FondoZoom, LineaEntrada, Parallax } from '../../../components/anim';
+import { Reveal, LineaEntrada } from '../../../components/anim';
 import Faq from '../../../components/Faq';
 
 export function generateStaticParams() {
@@ -28,7 +28,6 @@ export default async function Servicio({ params }) {
     <>
       <section className="pagina-header">
         <div className="pagina-header__fondo" aria-hidden="true">
-          <FondoZoom src={servicio.imagen} duracion={22} />
           <span />
         </div>
         <div className="contenedor">
@@ -46,7 +45,7 @@ export default async function Servicio({ params }) {
       </section>
 
       <section className="seccion">
-        <span className="halo halo--oro" style={{ width: 400, height: 400, left: '-14%', top: '10%' }} aria-hidden="true" />
+        <span className="halo halo--acento" style={{ width: 400, height: 400, left: '-14%', top: '10%' }} aria-hidden="true" />
         <div className="contenedor dos-columnas">
           <Reveal>
             <Eyebrow>Alcance</Eyebrow>
@@ -96,14 +95,9 @@ export default async function Servicio({ params }) {
       </section>
 
       {servicio.triada && (
-        <section className="seccion seccion--navy triada-seccion">
-          <div className="triada-seccion__fondo" aria-hidden="true">
-            <Parallax distancia={60}>
-              <FondoZoom src="/img/aeronaves.jpg" className="triada-seccion__img" duracion={26} />
-            </Parallax>
-            <span />
-          </div>
-          <div className="contenedor" style={{ position: 'relative', zIndex: 2 }}>
+        <section className="seccion seccion--clara triada-seccion">
+          <span className="triada-seccion__patron" aria-hidden="true" />
+          <div className="contenedor" style={{ position: 'relative', zIndex: 1 }}>
             <TituloSeccion
               eyebrow="Tríada logística global"
               titulo="Las tres rutas"
@@ -117,7 +111,7 @@ export default async function Servicio({ params }) {
       )}
 
       <section className="seccion seccion--clara seccion--linea">
-        <span className="halo halo--oro" style={{ width: 420, height: 420, right: '-12%', bottom: '0%' }} aria-hidden="true" />
+        <span className="halo halo--acento" style={{ width: 420, height: 420, right: '-12%', bottom: '0%' }} aria-hidden="true" />
         <div className="contenedor faq-bloque">
           <div>
             <TituloSeccion

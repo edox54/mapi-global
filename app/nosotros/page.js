@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Cabecera, Eyebrow, CTA, Medio, Proceso, TituloSeccion, Cinta } from '../../components/Bloques';
 import { GraficoNodos } from '../../components/Graficos';
-import { Reveal, Contador, FondoZoom, LineaEntrada, Parallax, LineaOro } from '../../components/anim';
+import { Reveal, Contador, LineaEntrada, Parallax, LineaAcento } from '../../components/anim';
 import Faq from '../../components/Faq';
 import { faqsHolding } from '../../lib/faqs';
 import { servicios } from '../../lib/servicios';
@@ -56,7 +56,6 @@ export default function Nosotros() {
     <>
       <section className="pagina-header">
         <div className="pagina-header__fondo" aria-hidden="true">
-          <FondoZoom src="/img/holding.jpg" duracion={26} />
           <span />
         </div>
         <div className="contenedor">
@@ -74,7 +73,7 @@ export default function Nosotros() {
       </section>
 
       <section className="seccion">
-        <span className="halo halo--oro" style={{ width: 420, height: 420, left: '-14%', top: '12%' }} aria-hidden="true" />
+        <span className="halo halo--acento" style={{ width: 420, height: 420, left: '-14%', top: '12%' }} aria-hidden="true" />
         <div className="contenedor perfil">
           <div>
             <TituloSeccion eyebrow="Posicionamiento" titulo="Estructura y mandato" />
@@ -144,7 +143,7 @@ export default function Nosotros() {
         </div>
       </section>
 
-      <section className="seccion seccion--navy">
+      <section className="seccion seccion--clara seccion--linea">
         <div className="contenedor">
           <TituloSeccion
             eyebrow="Gobierno corporativo"
@@ -177,7 +176,7 @@ export default function Nosotros() {
       </section>
 
       <section className="seccion seccion--clara seccion--linea">
-        <span className="halo halo--oro" style={{ width: 400, height: 400, right: '-10%', top: '20%' }} aria-hidden="true" />
+        <span className="halo halo--acento" style={{ width: 400, height: 400, right: '-10%', top: '20%' }} aria-hidden="true" />
         <div className="contenedor">
           <TituloSeccion eyebrow="Valores corporativos" titulo="Criterios de operación" />
           <div className="valores" style={{ marginTop: 46 }}>
@@ -197,7 +196,7 @@ export default function Nosotros() {
           <Reveal y={44}>
             <Eyebrow>Presencia</Eyebrow>
             <LineaEntrada className="titulo">Sede corporativa</LineaEntrada>
-            <div style={{ maxWidth: 200, margin: '24px 0 28px' }}><LineaOro /></div>
+            <div style={{ maxWidth: 200, margin: '24px 0 28px' }}><LineaAcento /></div>
             <p className="plomo" style={{ marginBottom: 30 }}>
               La administración central del holding opera desde {site.contacto.ciudad.split(',')[0]}, Florida,
               punto de conexión entre los mercados de América del Norte, el Caribe y América del Sur.
