@@ -5,22 +5,23 @@ import { useEffect, useState } from 'react';
 // ponytail: herramienta temporal de aprobación de cliente — borrar este archivo
 // y su <script>/<SelectorTema /> en app/layout.js cuando el cliente elija paleta final.
 const TEMAS = [
-  { id: 'plata', nombre: 'Plateado / Gris', muestra: '#93a1af' },
-  { id: 'acero', nombre: 'Azul acero', muestra: '#4d6f9a' },
-  { id: 'esmeralda', nombre: 'Verde esmeralda', muestra: '#2f6b52' },
-  { id: 'cobre', nombre: 'Cobre / terracota', muestra: '#a8623f' },
-  { id: 'grafito', nombre: 'Grafito monocromo', muestra: '#5a6472' },
+  { id: 'cobre', nombre: 'Cobre / Ámbar (sugerida)', muestra: '#c9702f' },
+  { id: 'esmeralda', nombre: 'Verde esmeralda', muestra: '#1f7a5c' },
   { id: 'dorado', nombre: 'Dorado (original)', muestra: '#c6a15b' },
+  { id: 'acero', nombre: 'Azul acero', muestra: '#4d6f9a' },
+  { id: 'plata', nombre: 'Plateado / Gris', muestra: '#93a1af' },
+  { id: 'grafito', nombre: 'Grafito monocromo', muestra: '#5a6472' },
 ];
 
 const CLAVE = 'mapi-tema';
+const DEFECTO = 'cobre';
 
 export default function SelectorTema() {
   const [abierto, setAbierto] = useState(false);
-  const [tema, setTema] = useState('plata');
+  const [tema, setTema] = useState(DEFECTO);
 
   useEffect(() => {
-    setTema(document.documentElement.getAttribute('data-tema') || 'plata');
+    setTema(document.documentElement.getAttribute('data-tema') || DEFECTO);
   }, []);
 
   const elegir = (id) => {

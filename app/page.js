@@ -20,6 +20,7 @@ export default function Inicio() {
           <FondoZoom src="/img/hero.jpg" className="hero__img" />
         </div>
         <span className="hero__velo" aria-hidden="true" />
+        <span className="hero__resplandor" aria-hidden="true" />
         <span className="hero__patron" aria-hidden="true" />
         <Particulas className="hero__particulas" cantidad={90} />
         <span className="halo halo--acento" style={{ width: 460, height: 460, right: '-6%', top: '8%' }} aria-hidden="true" />
