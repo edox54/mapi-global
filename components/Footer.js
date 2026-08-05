@@ -45,6 +45,10 @@ export default function Footer() {
       <div className="contenedor pie__base">
         <p>© {new Date().getFullYear()} {site.nombre}. Todos los derechos reservados.</p>
         <p>Holding empresarial internacional</p>
+        <div className="pie__legal">
+          <Link href="/privacidad">Política de Privacidad</Link>
+          <Link href="/terminos">Términos de Servicio</Link>
+        </div>
       </div>
     </footer>
   );

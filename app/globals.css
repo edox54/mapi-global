@@ -557,6 +557,10 @@ a:hover .medio img, .mosaico__item:hover .medio img { transform: scale(1.06); }
 /* ---------- Contenido institucional ---------- */
 .prosa { max-width: 760px; display: grid; gap: 22px; }
 .prosa p { color: var(--grafito); font-size: 17.5px; }
+.prosa h2 { font-size: clamp(19px, 2vw, 24px); text-transform: uppercase; letter-spacing: 0.03em; color: var(--navy); margin-top: 12px; }
+.prosa ul { display: grid; gap: 10px; padding-left: 22px; }
+.prosa li { list-style: disc; color: var(--grafito); font-size: 17.5px; }
+.prosa a { color: var(--acento-oscuro); text-decoration: underline; text-underline-offset: 3px; }
 .dos-columnas { display: grid; grid-template-columns: 320px 1fr; gap: clamp(32px, 5vw, 72px); align-items: start; }
 @media (max-width: 900px) { .dos-columnas { grid-template-columns: 1fr; } }
 
@@ -642,6 +646,9 @@ a:hover .medio img, .mosaico__item:hover .medio img { transform: scale(1.06); }
   font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--grafito-claro);
   position: relative; z-index: 1;
 }
+.pie__legal { display: flex; gap: 20px; }
+.pie__legal a { color: var(--grafito-claro); }
+.pie__legal a:hover { color: var(--acento-oscuro); }
 @media (max-width: 900px) { .pie__grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 560px) { .pie__grid { grid-template-columns: 1fr; gap: 36px; } }
 
