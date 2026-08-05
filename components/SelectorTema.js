@@ -5,16 +5,16 @@ import { useEffect, useState } from 'react';
 // ponytail: herramienta temporal de aprobación de cliente — borrar este archivo
 // y su <script>/<SelectorTema /> en app/layout.js cuando el cliente elija paleta final.
 const TEMAS = [
-  { id: 'cobre', nombre: 'Cobre / Ámbar (sugerida)', muestra: '#c9702f' },
-  { id: 'esmeralda', nombre: 'Verde esmeralda', muestra: '#1f7a5c' },
-  { id: 'dorado', nombre: 'Dorado (original)', muestra: '#c6a15b' },
-  { id: 'acero', nombre: 'Azul acero', muestra: '#4d6f9a' },
+  { id: 'celeste', nombre: 'Celeste / Vidrio (sugerida)', muestra: '#5b9bd5' },
   { id: 'plata', nombre: 'Plateado / Gris', muestra: '#93a1af' },
-  { id: 'grafito', nombre: 'Grafito monocromo', muestra: '#5a6472' },
+  { id: 'acero', nombre: 'Azul acero', muestra: '#4d6f9a' },
+  { id: 'esmeralda', nombre: 'Verde esmeralda', muestra: '#1f7a5c' },
+  { id: 'cobre', nombre: 'Cobre / Ámbar', muestra: '#c9702f' },
+  { id: 'dorado', nombre: 'Dorado (original)', muestra: '#c6a15b' },
 ];
 
 const CLAVE = 'mapi-tema';
-const DEFECTO = 'cobre';
+const DEFECTO = 'celeste';
 
 export default function SelectorTema() {
   const [abierto, setAbierto] = useState(false);

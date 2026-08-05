@@ -1,6 +1,9 @@
+'use client';
+
 import Link from 'next/link';
+import { useRef } from 'react';
 import { IconAerea, IconTerrestre, IconMaritima, iconos } from './Icons';
-import { Reveal, LineaEntrada } from './anim';
+import { Reveal, LineaEntrada, useZoomLento } from './anim';
 
 export function Eyebrow({ children }) {
   return <p className="eyebrow">{children}</p>;
@@ -16,12 +19,34 @@ export function Cabecera({ eyebrow, titulo, texto }) {
   );
 }
 
-// Marco de imagen con tratamiento duotono navy y zoom al pasar el cursor.
-export function Medio({ src, alt = '', proporcion, className = '', children }) {
+// Insignia "espacio para foto" — deja explícito que el fondo gris es un
+// placeholder a reemplazar por fotografía real, no una pieza terminada.
+export function InsigniaPlaceholder({ texto = 'Imagen pendiente' }) {
+  return (
+    <span className="ph-badge">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
+        <rect x="2.5" y="5.5" width="19" height="14" rx="2" />
+        <circle cx="12" cy="12.5" r="3.4" />
+        <path d="M7.5 5.5l1.3-2h6.4l1.3 2" />
+      </svg>
+      {texto}
+    </span>
+  );
+}
+
+// Marco de imagen: zoom al pasar el cursor + insignia de placeholder.
+// La clase "img-parallax" queda marcada para que simpleParallax la tome.
+// zoom=true suma un Ken Burns continuo (GSAP) para las imágenes destacadas.
+// zoom y simpleParallax animan el mismo transform del <img>: si zoom está
+// activo, la imagen queda fuera del selector .img-parallax para que no compitan.
+export function Medio({ src, alt = '', proporcion, posicion, className = '', placeholder = false, etiqueta, zoom = false, children }) {
+  const imgRef = useRef(null);
+  useZoomLento(imgRef, zoom);
   return (
     <figure className={`medio ${className}`} style={proporcion ? { aspectRatio: proporcion } : undefined}>
-      <img src={src} alt={alt} loading="lazy" />
+      <img ref={imgRef} src={src} alt={alt} loading="lazy" className={zoom ? '' : 'img-parallax'} style={posicion ? { objectPosition: posicion } : undefined} />
       <span className="medio__velo" aria-hidden="true" />
+      {placeholder && <InsigniaPlaceholder texto={etiqueta} />}
       {children}
     </figure>
   );
@@ -36,7 +61,7 @@ export function Divisiones({ items, cta = false, columnas = 3 }) {
           <Reveal key={s.slug} delay={i * 0.09} y={54}>
             <Link href={`/servicios/${s.slug}`} className="division">
               <div className="division__medio">
-                <img src={s.imagen} alt="" loading="lazy" />
+                <img src={s.imagen} alt="" loading="lazy" className="img-parallax" style={s.posicion ? { objectPosition: s.posicion } : undefined} />
                 <span className="division__velo" aria-hidden="true" />
                 <Icono className="division__icono" />
               </div>

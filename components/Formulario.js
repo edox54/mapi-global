@@ -2,19 +2,35 @@
 
 import { useState } from 'react';
 
-// ponytail: solo UI — no hay envío. Conectar aquí un endpoint o servicio de formularios cuando exista.
 export default function Formulario() {
-  const [enviado, setEnviado] = useState(false);
+  const [estado, setEstado] = useState('inicial'); // inicial | enviando | ok | error
+  const [error, setError] = useState('');
+
+  async function enviar(e) {
+    e.preventDefault();
+    setEstado('enviando');
+    setError('');
+
+    const datos = new FormData(e.target);
+
+    try {
+      const res = await fetch('/mail.php', { method: 'POST', body: datos });
+      const json = await res.json();
+      if (json.ok) {
+        setEstado('ok');
+        e.target.reset();
+      } else {
+        setEstado('error');
+        setError(json.mensaje || 'No se pudo enviar la consulta.');
+      }
+    } catch {
+      setEstado('error');
+      setError('No se pudo conectar con el servidor. Intenta nuevamente.');
+    }
+  }
 
   return (
-    <form
-      className="form"
-      noValidate={false}
-      onSubmit={(e) => {
-        e.preventDefault();
-        setEnviado(true);
-      }}
-    >
+    <form className="form" noValidate={false} onSubmit={enviar}>
       <div className="campo">
         <label htmlFor="nombre">Nombre</label>
         <input id="nombre" name="nombre" type="text" autoComplete="name" required maxLength={120} />
@@ -32,8 +48,13 @@ export default function Formulario() {
         <textarea id="mensaje" name="mensaje" required maxLength={2000} />
       </div>
 
+      {/* Honeypot anti-spam: oculto para personas, los bots suelen completarlo. */}
+      <input type="text" name="sitio_web" tabIndex={-1} autoComplete="off" style={{ position: 'absolute', left: '-9999px' }} aria-hidden="true" />
+
       <div>
-        <button type="submit" className="btn">Enviar consulta</button>
+        <button type="submit" className="btn" disabled={estado === 'enviando'}>
+          {estado === 'enviando' ? 'Enviando…' : 'Enviar consulta'}
+        </button>
       </div>
 
       <p className="form__nota">
@@ -41,9 +62,14 @@ export default function Formulario() {
         la consulta.
       </p>
 
-      {enviado && (
+      {estado === 'ok' && (
         <p className="form__aviso" role="status">
-          Formulario de demostración: el envío no está conectado a ningún destinatario.
+          Consulta enviada correctamente. Te responderemos a la brevedad.
+        </p>
+      )}
+      {estado === 'error' && (
+        <p className="form__aviso" role="alert">
+          {error}
         </p>
       )}
     </form>

@@ -8,7 +8,7 @@ export default function Footer() {
     <footer className="pie">
       <div className="contenedor pie__grid">
         <div className="pie__marca">
-          <Image src="/isotipo-blanco.png" alt="MAPI GLOBAL" width={640} height={639} />
+          <Image src="/isotipo.png" alt="MAPI GLOBAL" width={640} height={639} />
           <p className="pie__tagline">{site.tagline}</p>
         </div>
 

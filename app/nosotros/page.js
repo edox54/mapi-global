@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Cabecera, Eyebrow, CTA, Medio, Proceso, TituloSeccion, Cinta } from '../../components/Bloques';
 import { GraficoNodos } from '../../components/Graficos';
-import { Reveal, Contador, LineaEntrada, Parallax, LineaAcento } from '../../components/anim';
+import { Reveal, Contador, LineaEntrada, LineaAcento } from '../../components/anim';
 import Faq from '../../components/Faq';
 import { faqsHolding } from '../../lib/faqs';
 import { servicios } from '../../lib/servicios';
@@ -119,9 +119,7 @@ export default function Nosotros() {
           </div>
 
           <Reveal delay={0.2} y={60} escala={0.9}>
-            <Parallax distancia={26}>
-              <Medio src="/img/bienes-raices.jpg" proporcion="3 / 4" />
-            </Parallax>
+            <Medio src="/img/bienes-raices.webp" proporcion="3 / 4" etiqueta="Sede corporativa" />
           </Reveal>
         </div>
       </section>
@@ -208,11 +206,11 @@ export default function Nosotros() {
               <li><strong>Correo</strong><a href={`mailto:${site.contacto.correo}`}>{site.contacto.correo}</a></li>
             </ul>
             <div style={{ marginTop: 34 }}>
-              <Link href="/contacto" className="btn">Ir a contacto</Link>
+              <Link href="/contacto" className="btn btn--acento">Ir a contacto</Link>
             </div>
           </Reveal>
           <Reveal delay={0.18} y={56} escala={0.92}>
-            <Medio src="/img/contacto.jpg" proporcion="4 / 5" />
+            <Medio src="/img/contacto.webp" proporcion="4 / 5" />
           </Reveal>
         </div>
       </section>

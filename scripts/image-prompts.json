@@ -1,0 +1,69 @@
+{
+  "estilo_base": "corporate architectural photography, clean minimalist aesthetic, dominant white and light gray tones, subtle pale blue accents, glass surfaces, abundant natural light, modern architecture, sense of order and precision, wide open spaces, cool color temperature, high-end real estate photography style, sharp focus, professional lighting, no visible people close-up, no text, no watermark, no logos",
+  "negative_prompt_base": "warm yellow tones, orange, sepia, vintage, grainy, dark moody lighting, cluttered, messy, cartoon, illustration, watermark, text overlay, logo, low resolution, blurry, people in close-up, dated interior design",
+  "imagenes": [
+    {
+      "id": "hero",
+      "archivo": "public/img/hero.jpg",
+      "uso": "Hero principal — Home",
+      "aspect_ratio": "1:1",
+      "prompt": "Modern corporate headquarters building facade, full glass curtain wall, clean geometric architecture, natural daylight reflecting off glass panels, white stone and steel accents, pale blue sky, minimalist composition, symmetrical framing, wide angle architectural photography, ultra clean and orderly, premium real estate photography, square crop",
+      "negative_prompt": "warm tones, people, cars, clutter, old buildings, text, watermark",
+      "notas": "Debe ser la imagen más fuerte del set, es la primera que ve el visitante"
+    },
+    {
+      "id": "bienes-raices",
+      "archivo": "public/img/bienes-raices.jpg",
+      "uso": "Nosotros (sede corporativa) / División Bienes Raíces",
+      "aspect_ratio": "3:4",
+      "prompt": "Interior of a modern corporate office lobby, floor-to-ceiling glass windows, white marble floor, light gray furniture, natural light flooding the space, minimalist real estate architecture, clean lines, sense of spaciousness and order, pale blue sky visible through windows, professional architectural photography, vertical composition",
+      "negative_prompt": "warm lighting, wood paneling, dark colors, clutter, people, text, watermark",
+      "notas": "También se usa recortada a 16:10 en la tarjeta de división"
+    },
+    {
+      "id": "refinacion",
+      "archivo": "public/img/refinacion.jpg",
+      "uso": "Home (mosaico) / División Refinación",
+      "aspect_ratio": "16:9",
+      "prompt": "Modern industrial refining facility, clean stainless steel pipework and tanks, cool gray and white color palette, natural daylight, orderly industrial architecture, glass-walled control room in background, minimalist industrial photography, no rust or warm tones, precise and sterile atmosphere, wide horizontal composition",
+      "negative_prompt": "rust, orange tones, dirty machinery, smoke, dark industrial, warm lighting, people, text, watermark",
+      "notas": "También se usa recortada a 16:10 en la tarjeta de división. Evitar tonos óxido/naranja típicos de refinerías"
+    },
+    {
+      "id": "logistica",
+      "archivo": "public/img/logistica.jpg",
+      "uso": "Home (mosaico grande) / División Logística",
+      "aspect_ratio": "3:4 vertical o formato alto",
+      "prompt": "Modern logistics terminal, orderly rows of shipping containers and cargo in cool gray and white tones, clean geometric composition, natural overcast light, glass-fronted logistics control building in background, minimalist industrial photography, sense of precision and organization, pale blue sky, tall vertical composition",
+      "negative_prompt": "warm tones, rust, clutter, chaotic stacking, dark lighting, people, text, watermark",
+      "notas": "También se usa recortada a 16:10 en la tarjeta de división. Es la imagen más alta del set (columna grande del mosaico)"
+    },
+    {
+      "id": "aeronaves",
+      "archivo": "public/img/aeronaves.jpg",
+      "uso": "División Aeronaves",
+      "aspect_ratio": "16:10",
+      "prompt": "Private executive jet parked inside a modern glass hangar, polished white fuselage, natural light streaming through glass hangar walls, clean minimalist aviation photography, cool gray concrete floor, pale blue sky visible through glass, orderly and premium atmosphere, wide horizontal composition",
+      "negative_prompt": "warm tones, old hangar, clutter, dark lighting, people, text, watermark",
+      "notas": ""
+    },
+    {
+      "id": "construccion",
+      "archivo": "public/img/construccion.jpg",
+      "uso": "Home (mosaico) / División Construcción",
+      "aspect_ratio": "16:9",
+      "prompt": "Modern building under construction with exposed glass and steel structure, clean geometric scaffolding, natural daylight, cool gray concrete and glass facade partially completed, minimalist architectural photography, orderly construction site, pale blue sky, wide horizontal composition",
+      "negative_prompt": "warm tones, rubble, dirt, chaotic site, dark lighting, people, text, watermark",
+      "notas": "También se usa recortada a 16:10 en la tarjeta de división"
+    },
+    {
+      "id": "contacto",
+      "archivo": "public/img/contacto.jpg",
+      "uso": "Nosotros (sección de contacto / sede)",
+      "aspect_ratio": "4:5",
+      "prompt": "Modern corporate meeting room, glass walls, white minimalist furniture, light gray upholstered chairs, natural light, clean orderly interior, pale blue accent details, floor-to-ceiling windows overlooking a city skyline, professional architectural interior photography, vertical composition",
+      "negative_prompt": "warm lighting, wood paneling, dark colors, clutter, people, text, watermark",
+      "notas": ""
+    }
+  ]
+}

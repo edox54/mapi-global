@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { servicios } from '../lib/servicios';
 import { Eyebrow, Triada, CTA, Divisiones, Cinta, Medio } from '../components/Bloques';
 import { GraficoADN } from '../components/Graficos';
-import { Reveal, PalabrasEntrada, LineaEntrada, Contador, FondoZoom, LineaAcento } from '../components/anim';
+import { Reveal, PalabrasEntrada, LineaEntrada, Contador, LineaAcento } from '../components/anim';
 import Particulas from '../components/Particulas';
 
 const cifras = [
@@ -16,13 +16,9 @@ export default function Inicio() {
   return (
     <>
       <section className="hero">
-        <div className="hero__fondo" aria-hidden="true">
-          <FondoZoom src="/img/hero.jpg" className="hero__img" />
-        </div>
-        <span className="hero__velo" aria-hidden="true" />
         <span className="hero__resplandor" aria-hidden="true" />
         <span className="hero__patron" aria-hidden="true" />
-        <Particulas className="hero__particulas" cantidad={90} />
+        <Particulas className="hero__particulas" cantidad={70} color="91, 155, 213" />
         <span className="halo halo--acento" style={{ width: 460, height: 460, right: '-6%', top: '8%' }} aria-hidden="true" />
 
         <div className="contenedor">
@@ -39,22 +35,24 @@ export default function Inicio() {
                 </p>
                 <div className="hero__acciones">
                   <Link href="/servicios" className="btn btn--acento">Divisiones</Link>
-                  <Link href="/nosotros" className="btn btn--fantasma">El holding</Link>
+                  <Link href="/nosotros" className="btn btn--linea">El holding</Link>
                 </div>
               </Reveal>
-            </div>
-            <Reveal delay={0.45} y={44} escala={0.86}>
-              <Image src="/isotipo-blanco.png" alt="" width={640} height={639} className="hero__iso" priority />
-            </Reveal>
-          </div>
 
-          <div className="hero__datos">
-            {cifras.map((c, i) => (
-              <Reveal key={c.etiqueta} delay={0.85 + i * 0.12} className="hero__dato">
-                <strong><Contador valor={c.valor} /></strong>
-                <span>{c.etiqueta}</span>
-              </Reveal>
-            ))}
+              <div className="hero__datos">
+                {cifras.map((c, i) => (
+                  <Reveal key={c.etiqueta} delay={0.85 + i * 0.12} className="hero__dato">
+                    <strong><Contador valor={c.valor} /></strong>
+                    <span>{c.etiqueta}</span>
+                  </Reveal>
+                ))}
+              </div>
+            </div>
+
+            <Reveal delay={0.35} y={50} escala={0.94} className="hero__medio">
+              <Medio src="/img/hero.webp" proporcion="1 / 1" etiqueta="Fotografía institucional" zoom />
+              <Image src="/isotipo.png" alt="MAPI GLOBAL" width={640} height={639} className="hero__iso" priority />
+            </Reveal>
           </div>
         </div>
 
@@ -133,7 +131,7 @@ export default function Inicio() {
           <div className="mosaico">
             <Reveal className="mosaico__grande" y={70} escala={0.92}>
               <Link href="/servicios/logistica" className="mosaico__item">
-                <Medio src="/img/logistica.jpg" />
+                <Medio src="/img/logistica.webp" posicion="50% 65%" />
                 <div className="mosaico__texto">
                   <span>Logística</span>
                   <h3>Movimiento multimodal de carga</h3>
@@ -144,7 +142,7 @@ export default function Inicio() {
             <div className="mosaico__columna">
               <Reveal delay={0.14} y={70} escala={0.92}>
                 <Link href="/servicios/construccion" className="mosaico__item">
-                  <Medio src="/img/construccion.jpg" proporcion="16 / 9" />
+                  <Medio src="/img/construccion.webp" proporcion="16 / 9" />
                   <div className="mosaico__texto">
                     <span>Construcción</span>
                     <h3>Obra civil y desarrollos</h3>
@@ -153,7 +151,7 @@ export default function Inicio() {
               </Reveal>
               <Reveal delay={0.28} y={70} escala={0.92}>
                 <Link href="/servicios/refinacion" className="mosaico__item">
-                  <Medio src="/img/refinacion.jpg" proporcion="16 / 9" />
+                  <Medio src="/img/refinacion.webp" proporcion="16 / 9" />
                   <div className="mosaico__texto">
                     <span>Refinación</span>
                     <h3>Procesamiento de materiales</h3>

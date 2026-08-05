@@ -76,7 +76,7 @@ export default async function Servicio({ params }) {
             </div>
           </div>
           <Reveal delay={0.2} y={50} escala={0.92}>
-            <Medio src={servicio.imagen} proporcion="3 / 4" className="capacidades-bloque__medio" />
+            <Medio src={servicio.imagen} proporcion="3 / 4" posicion={servicio.posicion} className="capacidades-bloque__medio" />
           </Reveal>
         </div>
       </section>
