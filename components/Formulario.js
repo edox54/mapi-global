@@ -14,7 +14,7 @@ export default function Formulario() {
     const datos = new FormData(e.target);
 
     try {
-      const res = await fetch('/mail.php', { method: 'POST', body: datos });
+      const res = await fetch('/api/contacto', { method: 'POST', body: datos });
       const json = await res.json();
       if (json.ok) {
         setEstado('ok');
