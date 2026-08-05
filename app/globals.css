@@ -31,65 +31,15 @@
   --vidrio-bg: rgba(255, 255, 255, 0.6);
   --vidrio-borde: rgba(255, 255, 255, 0.8);
 
-  /* Acento: 6 propuestas seleccionables por data-tema en <html>.
+  /* Acento: azul celeste — "azul muy sutil, celeste" pedido por el cliente,
+     con detalles en plateado, baja saturación sobre blanco/gris claro.
      --acento-rgb es el mismo color en "r,g,b" para componer alphas con
-     rgba(var(--acento-rgb), N) sin repetir hex.
-     Default = Celeste: el cliente pidió explícitamente "azul muy sutil,
-     celeste" con detalles en plateado — un solo acento cromático, de baja
-     saturación, sobre blanco/gris claro. */
+     rgba(var(--acento-rgb), N) sin repetir hex. */
   --acento: #5b9bd5;
   --acento-claro: #a9cbe8;
   --acento-oscuro: #3a6f9e;
   --acento-rgb: 91, 155, 213;
   --acento-tenue: rgba(var(--acento-rgb), 0.12);
-}
-
-/* Celeste / Vidrio — propuesta por defecto: la dirección pedida por el cliente */
-:root[data-tema='celeste'] {
-  --acento: #5b9bd5;
-  --acento-claro: #a9cbe8;
-  --acento-oscuro: #3a6f9e;
-  --acento-rgb: 91, 155, 213;
-}
-
-/* Plateado / Gris institucional — casi monocromo, aún más neutro que celeste */
-:root[data-tema='plata'] {
-  --acento: #93a1af;
-  --acento-claro: #c1ccd5;
-  --acento-oscuro: #5f6b78;
-  --acento-rgb: 147, 161, 175;
-}
-
-/* Cobre / Ámbar — propuesta previa, cálida, referencia para comparar */
-:root[data-tema='cobre'] {
-  --acento: #c9702f;
-  --acento-claro: #f0a868;
-  --acento-oscuro: #94491c;
-  --acento-rgb: 201, 112, 47;
-}
-
-/* Verde esmeralda institucional */
-:root[data-tema='esmeralda'] {
-  --acento: #1f7a5c;
-  --acento-claro: #5cb191;
-  --acento-oscuro: #145840;
-  --acento-rgb: 31, 122, 92;
-}
-
-/* Azul acero — más saturado que el celeste por defecto */
-:root[data-tema='acero'] {
-  --acento: #4d6f9a;
-  --acento-claro: #85a6c9;
-  --acento-oscuro: #35506f;
-  --acento-rgb: 77, 111, 154;
-}
-
-/* Dorado — paleta original, referencia para comparar */
-:root[data-tema='dorado'] {
-  --acento: #c6a15b;
-  --acento-claro: #e3c88c;
-  --acento-oscuro: #9c7b39;
-  --acento-rgb: 198, 161, 91;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -815,39 +765,4 @@ a:hover .medio img, .mosaico__item:hover .medio img { transform: scale(1.06); }
   .proceso { grid-template-columns: 1fr; }
   .capa, .valor, .capacidad, .tarjeta-contacto, .gobierno__item, .triada__item { padding: 26px 22px; }
   .division__cuerpo { padding: 24px 22px 24px; }
-}
-
-/* ---------- Selector de paleta (herramienta temporal de aprobación) ---------- */
-.selector-tema { position: fixed; right: 22px; bottom: 22px; z-index: 250; display: flex; flex-direction: column; align-items: flex-end; gap: 14px; }
-.selector-tema__toggle {
-  width: 54px; height: 54px; border-radius: var(--pastilla); border: 2px solid var(--navy);
-  background: var(--hueso-claro); cursor: pointer; padding: 0; position: relative;
-  box-shadow: 0 14px 34px rgba(15, 32, 64, 0.22); transition: transform 0.35s var(--curva);
-}
-.selector-tema__toggle:hover { transform: scale(1.07); }
-.selector-tema__toggle span { position: absolute; inset: 7px; border-radius: var(--pastilla); display: block; }
-.selector-tema__panel {
-  width: 240px; background: var(--hueso-claro); border: 1px solid var(--linea); border-radius: var(--radio);
-  padding: 16px; box-shadow: 0 26px 60px rgba(15, 32, 64, 0.22);
-  animation: bajar 0.3s var(--curva);
-}
-.selector-tema__titulo { font-size: 12.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--navy); }
-.selector-tema__nota { font-size: 11.5px; color: var(--grafito); margin-top: 4px; margin-bottom: 12px; }
-.selector-tema__panel ul { display: grid; gap: 4px; }
-.selector-tema__panel button {
-  width: 100%; display: flex; align-items: center; gap: 10px; padding: 9px 10px; border-radius: var(--radio-sm);
-  background: transparent; border: 0; cursor: pointer; font-size: 13px; font-weight: 600; color: var(--navy);
-  text-align: left; transition: background 0.25s ease;
-}
-.selector-tema__panel li > button:hover { background: var(--hueso); }
-.selector-tema__panel button.is-activo { background: var(--acento-tenue); }
-.selector-tema__panel button span { width: 18px; height: 18px; border-radius: var(--pastilla); flex: none; border: 1px solid rgba(15, 32, 64, 0.15); }
-
-@media (max-width: 640px) {
-  .selector-tema { right: 14px; bottom: 14px; }
-  .selector-tema__panel { width: 210px; }
-}
-
-@media print {
-  .selector-tema { display: none; }
 }
